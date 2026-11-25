@@ -1,0 +1,35 @@
+# Dependencies & build output
+node_modules
+dist
+dist-ssr
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & runtime local state
+.env
+.env.local
+.env.*.local
+*.local
+data/live_state.json
+
+# Temporary test artifacts
+test.pdf
+
+# Editor & OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

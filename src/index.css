@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 24rem;
+}
+
+@layer base {
+  :root {
+    --primary-orange: #f97316;
+    --primary-dark: #ea580c;
+    --primary-amber: #f59e0b;
+    --cream-bg: #fffbf5;
+    --cream-card: #ffffff;
+    --dark-charcoal: #18181b;
+  }
+
+  body {
+    background-color: #faf7f2;
+    color: #1c1917;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Touch-friendly interactive targets */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Hide scrollbars where specified */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styling for QR code stickers and tables */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reset all modal containers so they never clip or scroll on print */
+  body,
+  #root,
+  .fixed,
+  .relative,
+  [class*="overflow-"],
+  [class*="max-h-"] {
+    position: static !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Hide everything on page except printable sections */
+  body * {
+    visibility: hidden !important;
+  }
+
+  #printable-qr-section,
+  #printable-qr-section * {
+    visibility: visible !important;
+  }
+
+  #printable-qr-section {
+    position: static !important;
+    display: block !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+
+  .printable-single-sticker {
+    margin: 15mm auto !important;
+    max-width: 100mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .printable-single-tentcard {
+    margin: 10mm auto !important;
+    max-width: 150mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-card-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 8mm !important;
+  }
+
+  .no-print,
+  button,
+  input,
+  .no-print * {
+    display: none !important;
+  }
+}
