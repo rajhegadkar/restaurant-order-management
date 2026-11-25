@@ -4,6 +4,15 @@ A modern, responsive Restaurant Online Ordering Web Application, Contactless QR 
 
 ---
 
+## 🌐 Live Demo (Hosted on Render)
+
+- **Customer Storefront:** https://restaurant-order-management-xxoi.onrender.com/
+- **Table 01 QR Scan Demo:** https://restaurant-order-management-xxoi.onrender.com/order?table=Table%2001&token=tok_tbl01_948a
+- **Admin Control Panel:** https://restaurant-order-management-xxoi.onrender.com/admin (`admin@restaurant.com` / `admin123`)
+- **Kitchen Display System (KDS):** https://restaurant-order-management-xxoi.onrender.com/admin/kitchen
+
+---
+
 ## ⚡ One-Click Setup & Launch
 
 This repository is configured for **instant one-click setup** with zero manual configuration required. It runs out-of-the-box with built-in sample gourmet data (INR `₹`), real-time multi-device Wi-Fi LAN synchronization, and optional Supabase cloud persistence.
