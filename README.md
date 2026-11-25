@@ -77,6 +77,32 @@ The platform runs 100% locally out-of-the-box, and can optionally connect to a l
 
 ---
 
+## ☁️ Cloud Deployment (Render, Railway, Fly.io & Docker)
+
+This repository includes production configurations (`server.mjs`, `render.yaml`, `Dockerfile`, `railway.json`, `fly.toml`, `Procfile`) for zero-friction cloud hosting with full `/api/*` order & table synchronization and automatic HTTPS Table QR URL normalization.
+
+### Option 1: Deploy to Render (One-Click Blueprint)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/rajhegadkar/restaurant-order-management)
+
+Or create a **New Web Service** on Render connected to this repository:
+- **Runtime:** `Node`
+- **Build Command:** `npm install --include=dev && npm run build`
+- **Start Command:** `npm run start:prod`
+- **Health Check Path:** `/api/health`
+- **Persistence Note:** On Render's Free tier, local filesystem data (`data/live_state.json`) resets when the service sleeps/redeploys. For permanent persistence, attach a Render Persistent Disk at `/var/data` with `DATA_DIR=/var/data`, or configure `VITE_SUPABASE_URL` & `VITE_SUPABASE_ANON_KEY`.
+
+### Option 2: Deploy via Docker (Any Cloud / VPS / Cloud Run)
+```bash
+docker build -t restaurant-ordering .
+docker run -d -p 5173:5173 --name restaurant-app restaurant-ordering
+```
+
+### Option 3: Railway & Fly.io
+- **Railway:** Connect GitHub repo — `railway.json` automatically configures build, `npm run start:prod`, and `/api/health`.
+- **Fly.io:** Run `fly launch` / `fly deploy` using the pre-configured `fly.toml` and multi-stage `Dockerfile`.
+
+---
+
 ## 🧪 Verification & Testing
 
 ```bash

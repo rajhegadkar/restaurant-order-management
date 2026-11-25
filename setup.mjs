@@ -125,7 +125,7 @@ function main() {
 
   if (shouldStart) {
     const distExists = fs.existsSync(path.join(__dirname, 'dist', 'index.html'));
-    const viteScript = distExists ? 'preview' : 'dev';
+    const viteScript = distExists ? 'start:prod' : 'dev';
     console.log(`[..] Starting server via "npm run ${viteScript}" on port ${port}...\n`);
 
     if (openBrowser) {

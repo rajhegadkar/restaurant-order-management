@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: restaurant-order-management
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # Optional: Mount a Render Persistent Disk at /var/data and set DATA_DIR=/var/data
+      # so live_state.json persists across free-tier restarts and redeploys.
+      # - key: DATA_DIR
+      #   value: /var/data
+      # Optional: Supabase Cloud Persistence
+      # - key: VITE_SUPABASE_URL
+      #   sync: false
+      # - key: VITE_SUPABASE_ANON_KEY
+      #   sync: false

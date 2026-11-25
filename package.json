@@ -1,14 +1,18 @@
 {
   "name": "restaurants-order-management",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "setup": "node setup.mjs",
     "dev": "vite --host --port 5173",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host --port 5173",
     "start": "node setup.mjs --start",
+    "start:prod": "node server.mjs",
     "test": "node test-all-features.js"
   },
   "dependencies": {
